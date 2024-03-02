@@ -1,6 +1,6 @@
 Stateful Fuzzing : Fuzzing where the final state of your previous run is the starting state of your next run
 
-```sol
+```js
 uint256 private shouldAlwaysBeZero = 0;
 
 uint256 private hiddenValue = 0;
@@ -26,7 +26,7 @@ In this scenario whatever input we give to the `doStuff` function `shouldAlwaysB
 
 Instead of iterating one by one, we can use Fuzz testing.
 
-```sol
+```js
 function test_ShouldAlwaysRemainZero(uint256 testData) public {
     // when we give input to a test function It becomes stateless fuzzing
     // foundry will throw some random data at it
@@ -57,7 +57,7 @@ When we use stateful fuzz testing we can catch this bug
 
 -   To write a stateful fuzz testing our test should start with Invariant keyword and needs some setup
 
-```sol
+```js
 uint256 private shouldAlwaysBeZero = 0;
 
 uint256 private hiddenValue = 0;
@@ -76,7 +76,7 @@ function doStuff(uint256 data){
 
 ```
 
-```sol
+```js
 function test_ShouldAlwaysRemainZero(uint256 testData) public {
     // when we give input to a test function It becomes stateless fuzzing
     // foundry will throw some random data at it
@@ -95,10 +95,11 @@ Invariant Test
 -   This target contract will specify which function to call and in which order
 -   In this example we have only one function
 
-```
+```js
     //setUp
     function setUp() public {
         fuzzExample = new FuzzExample();
+        // specifying the target contract
         targetContract(address(fuzzExample));
     }
 

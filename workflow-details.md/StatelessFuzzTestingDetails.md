@@ -1,6 +1,6 @@
 Fuzz Testing: Supply random data to your system in an attempt to break it.
 
-```sol
+```js
 uint256 private shouldAlwaysBeZero = 0;
 
 function doStuff(uint256 data){
@@ -18,7 +18,7 @@ In this scenario whatever input we give to the `doStuff` function `shouldAlwaysB
 
 we can iterate data from 1 to 1000 and check whether `shouldAlwaysBeZero` changes
 
-```sol
+```js
 function test_ShouldAlwaysRemainZero() public {
     const testData = 0; //1...100
 
@@ -32,7 +32,7 @@ Let's say we iterated data from 1...100 and say unit test passes, but it didn't 
 
 Instead of iterating one by one, we can use Fuzz testing.
 
-```sol
+```js
 function test_ShouldAlwaysRemainZero(uint256 testData) public {
     // when we give input to a test function It becomes stateless fuzzing
     // foundry will throw some random data at it

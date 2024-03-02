@@ -25,11 +25,9 @@ contract StatefulFuzz is StdInvariant, Test {
 
     // -------
 
-    // when data ==7
+    // when data == 7
     // hiddenValue will become 7
     // on next iteration whatever data can be, but hiddenValue will be 7
     // since hiddenvalue is 7
     // test will fail
-
-
 }
